@@ -39,7 +39,7 @@ document.querySelectorAll('a[href]').forEach((link) => link.addEventListener('cl
   if (destination.origin !== location.origin || !destination.pathname.endsWith('.html') || destination.href === location.href) return;
   event.preventDefault();
   document.body.classList.add('page-leaving');
-  setTimeout(() => { location.href = destination.href; }, 180);
+  setTimeout(() => { location.href = destination.href; }, 260);
 }));
 
 addEventListener('pageshow', () => document.body.classList.remove('page-leaving'));
