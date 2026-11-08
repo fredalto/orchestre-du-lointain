@@ -84,3 +84,42 @@ document.querySelectorAll('.year-filter button').forEach((button) => button.addE
     event.classList.toggle('hidden', filter !== 'all' && event.dataset.year !== filter);
   });
 }));
+// Galerie accessible : fermeture avec Échap, navigation avec les flèches.
+const photoViewer = document.querySelector('.photo-viewer');
+const galleryLinks = [...document.querySelectorAll('[data-gallery-photo]')];
+if (photoViewer && typeof photoViewer.showModal === 'function') {
+  let photoIndex = 0;
+  let photoOpener;
+  const image = photoViewer.querySelector('.photo-large');
+  const caption = photoViewer.querySelector('.photo-caption');
+  const showPhoto = index => {
+    photoIndex = (index + galleryLinks.length) % galleryLinks.length;
+    const link = galleryLinks[photoIndex];
+    image.src = link.href;
+    image.alt = link.querySelector('img').alt;
+    caption.textContent = link.dataset.caption || image.alt;
+    photoViewer.querySelector('.photo-count').textContent = `${photoIndex + 1} / ${galleryLinks.length}`;
+  };
+  galleryLinks.forEach((link, index) => link.addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    photoOpener = link;
+    showPhoto(index);
+    photoViewer.showModal();
+    document.body.classList.add('photo-open');
+  }));
+  photoViewer.querySelector('.photo-close').addEventListener('click', () => photoViewer.close());
+  photoViewer.querySelector('.photo-prev').addEventListener('click', () => showPhoto(photoIndex - 1));
+  photoViewer.querySelector('.photo-next').addEventListener('click', () => showPhoto(photoIndex + 1));
+  photoViewer.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      showPhoto(photoIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    }
+  });
+  photoViewer.addEventListener('click', event => { if (event.target === photoViewer) photoViewer.close(); });
+  photoViewer.addEventListener('close', () => {
+    document.body.classList.remove('photo-open');
+    photoOpener?.focus();
+  });
+}

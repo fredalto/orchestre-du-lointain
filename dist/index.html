@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20261003-7">
-  <link rel="stylesheet" href="font.css?v=20261108-2">
+  <link rel="stylesheet" href="font.css?v=20261108-3">
 </head>
 <body data-page="accueil">
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -30,19 +30,15 @@
     <section class="hero">
       <img src="assets/accueil-orchestre.jpg" alt="Les musiciennes et musiciens de l’Orchestre du Lointain">
       <div class="hero-events" aria-label="Prochains concerts">
-        <div class="hero-events-stage">
-          <a class="hero-event is-active" data-hero-event href="calendrier.html#carnet-de-bal-bonningues"><time datetime="2026-12-05T18:30"><span>5 décembre 2026</span><strong>18h30</strong></time><span class="hero-event-title">Carnet de bal</span></a>
-        </div>
+        <div class="hero-events-stage" data-concerts="hero"><!-- concerts:hero:start --><a class="hero-event is-active" data-hero-event href="calendrier.html#carnet-de-bal-bonningues"><time datetime="2026-12-05"><span>5 décembre 2026</span><strong>18h30</strong></time><span class="hero-event-title">Carnet de bal</span><span class="hero-event-city">Bonningues-lès-Calais</span><span class="hero-event-cta">Infos et réservation →</span></a><!-- concerts:hero:end --></div>
       </div>
       <div class="hero-copy reveal"><h1>Orchestre du Lointain</h1><p>Sophie Lechelle</p></div>
     </section>
     <section class="section home-upcoming">
       <div class="container">
         <p class="kicker">À venir</p>
-        <h2 class="section-title">Prochain concert</h2>
-        <div class="featured-events">
-          <a class="home-event reveal" href="calendrier.html#carnet-de-bal-bonningues"><time datetime="2026-12-05T18:30"><strong>05</strong><span>décembre<br>2026 · 18h30</span></time><h2>Carnet de bal</h2><p>Médiathèque La Rose des Vents</p><p>Bonningues-lès-Calais</p><small>Site internet commun aux médiathèques de Grand Calais, vérifiez bien la date et le lieu.</small><span class="home-event-link">Voir les détails</span></a>
-        </div>
+        <h2 class="section-title" data-concerts-heading>Prochain concert</h2>
+        <div class="featured-events" data-concerts="home"><!-- concerts:home:start --><a class="home-event" href="https://mediatheques.grandcalais.fr/Default/doc/CALENDAR/812/carnet-de-bal" target="_blank" rel="noopener"><time datetime="2026-12-05"><strong>05</strong><span>décembre<br>2026 · 18h30</span></time><h2>Carnet de bal</h2><p>Médiathèque La Rose des Vents</p><p>Bonningues-lès-Calais</p><p>3 allée de l’espace Futurum</p><small>Tout public · Inscriptions sur le site des médiathèques.</small><span class="home-event-link">Infos et réservation</span></a><!-- concerts:home:end --></div>
         <p style="margin-top:2rem"><a class="button" href="calendrier.html">Voir tout le calendrier</a></p>
       </div>
     </section>
@@ -88,6 +84,7 @@
     <div class="footer-grid"><div><img src="assets/logo.jpg" alt="Orchestre du Lointain"><p>Orchestre du Lointain<br>Sophie Lechelle</p></div><div><strong>Contact</strong><p><a href="mailto:contact@orchestredulointain.com">contact@orchestredulointain.com</a></p></div><div><strong>Suivez-nous</strong><p class="social-links"><a href="https://www.facebook.com/orchestredulointain" target="_blank" rel="noopener"><img src="assets/facebook.svg" alt=""><span>Facebook</span></a><a href="https://instagram.com/orchestredulointain" target="_blank" rel="noopener"><img src="assets/instagram.svg" alt=""><span>Instagram</span></a><a href="https://www.youtube.com/channel/UCLRjkSUZXmplX2G0_HjTMqg" target="_blank" rel="noopener"><img src="assets/youtube.svg" alt=""><span>YouTube</span></a></p></div></div>
     <p class="legal">N° de Récépissé de déclaration d'entrepreneur de spectacles vivants, valant licence : PLATESV-D-2021-006264 en date du 21/10/2021</p>
   </footer>
-  <script src="script.js?v=20261003-7"></script>
+  <script src="concerts.js?v=20261108-3"></script>
+  <script src="script.js?v=20261108-3"></script>
 </body>
 </html>

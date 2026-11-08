@@ -619,3 +619,37 @@ body[data-page="accueil"] .hero::after {
   pointer-events: none;
   background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.35) 45%, #fff);
 }
+/* Informations du concert et galerie en grand format. */
+.hero-events-stage { min-height: 154px; }
+.hero-event { gap: .45rem; padding: 1rem 1.2rem; background: linear-gradient(90deg, rgba(255,255,255,.88), rgba(255,255,255,.62)); }
+.hero-event-city { font-size: .9rem; font-weight: 500; }
+.hero-event-cta { margin-top: .25rem; font-size: .85rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
+.hero-event:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+.hero-no-event { padding: 1rem; background: rgba(255,255,255,.85); color: var(--brand-dark); }
+.empty-concerts { max-width: 700px; color: var(--muted); }
+.upcoming-event .event-note { font-size: .85rem; margin-top: .5rem; }
+.booking-panel > p { max-width: 780px; }
+.booking-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0 1rem; }
+.gallery a { display: block; overflow: hidden; }
+.gallery a img { transition: transform .25s; }
+.gallery a:hover img { transform: scale(1.025); }
+.gallery a:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+body.photo-open { overflow: hidden; }
+.photo-viewer { width: min(1200px, 96vw); max-width: 96vw; max-height: 96dvh; padding: 0; border: 0; color: #fff; background: #11191b; }
+.photo-viewer::backdrop { background: rgba(8,17,20,.9); }
+.photo-viewer-content { padding: 1rem; }
+.photo-close { display: block; margin-left: auto; margin-bottom: .8rem; }
+.photo-viewer button { cursor: pointer; border: 1px solid #9ed0db; border-radius: 3px; background: transparent; color: #fff; padding: .65rem 1rem; }
+.photo-viewer button:hover { background: #245d6d; }
+.photo-viewer button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.photo-viewer figure { margin: 0; }
+.photo-viewer .photo-large { width: 100%; max-height: calc(96dvh - 210px); object-fit: contain; }
+.photo-caption { padding: .8rem 0; text-align: center; font-size: .9rem; }
+.photo-controls { display: flex; align-items: center; justify-content: space-between; gap: .7rem; }
+@media (max-width: 650px) {
+  .hero-events-stage { min-height: 150px; }
+  .hero-event { padding: .8rem 1rem; }
+  .booking-actions { flex-direction: column; align-items: stretch; }
+  .photo-viewer-content { padding: .7rem; }
+  .photo-viewer button { padding: .6rem .7rem; font-size: .8rem; }
+}
