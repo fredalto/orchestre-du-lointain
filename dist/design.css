@@ -123,6 +123,12 @@ a:focus-visible, summary:focus-visible, button:focus-visible { outline: 3px soli
 .partners-home img { max-height: 85px; }
 .site-footer { border-top-width: 2px; }
 .social-links a, .footer-grid a[href^='mailto:'] { border-radius: 3px; }
+.footer-links { width: min(1180px,100%); margin: .5rem auto 0; text-align: center; font-size: .85rem; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem 1rem; text-decoration: underline; text-underline-offset: .25em; }
+.legal-page { padding-top: 76px; }
+.legal-page .legal-updated { color: var(--muted); font-size: .85rem; }
+.legal-page .legal-address { font-style: normal; }
+.legal-page .prose a { color: var(--brand); text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
 
 @media (max-width: 980px) {
   .featured-events .home-event { grid-template-columns: 130px minmax(0,1fr); gap: 1.5rem; }

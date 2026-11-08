@@ -38,10 +38,11 @@ for(const file of fs.readdirSync('dist').filter(f=>f.endsWith('.html'))){
  assert.ok(html.includes('<link rel="canonical" href="'+canonical+'">'),file+': URL canonique');
  assert.ok(html.includes('<meta property="og:url" content="'+canonical+'">'),file+': URL de partage');
  assert.ok(html.includes('<meta property="og:image"'),file+': image de partage absente');
+ assert.ok(html.includes('href="mentions-legales.html"'),file+': accès aux mentions légales absent');
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(new Set(ids).size,ids.length,file+': identifiants dupliqués');
  for(const m of html.matchAll(/(?:href|src)="([^"?]+)(?:\?[^"#]*)?"/g)){
-  const url=m[1];if(/^(https?:|mailto:|data:|#)/.test(url))continue;
+  const url=m[1];if(/^(https?:|mailto:|tel:|data:|#)/.test(url))continue;
   const [target,hash]=url.split('#');assert.ok(fs.existsSync('dist/'+target),file+': '+target);
   if(hash)assert.ok(fs.readFileSync('dist/'+target,'utf8').includes('id="'+hash+'"'),file+': '+url);
  }
@@ -50,4 +51,4 @@ assert.equal((fs.readFileSync('dist/media.html','utf8').match(/data-gallery-phot
 const sitemap=fs.readFileSync('dist/sitemap.xml','utf8');
 assert.equal((sitemap.match(/<loc>/g)||[]).length,descriptions.size,'Sitemap incomplet');
 assert.match(fs.readFileSync('dist/robots.txt','utf8'),/Sitemap: https:\/\/orchestredulointain.com\/sitemap.xml/);
-console.log('Tests réussis : 22 concerts, archivage, heure de Paris, état sans concert, liens, galerie, descriptions uniques et partage des sept pages.');
+console.log(`Tests réussis : 22 concerts, archivage, heure de Paris, état sans concert, liens, galerie, descriptions et partage des ${descriptions.size} pages, accès aux mentions légales.`);

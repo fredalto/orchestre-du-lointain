@@ -21,7 +21,7 @@ Fiche officielle utilisée pour le lien du 5 décembre : https://mediatheques.gr
 
 ## Descriptions, partage et contrôles
 
-Les titres, descriptions et aperçus de partage des sept pages sont regroupés dans `tools/sync-metadata.cjs`. Après modification, lancer `node tools/sync-metadata.cjs` : ce script actualise les en-têtes des pages, le sitemap et le fichier robots, sans changer leur contenu principal. Les versions des feuilles de style sont définies au même endroit.
+Les titres, descriptions et aperçus de partage des pages sont regroupés dans `tools/sync-metadata.cjs`. Après modification, lancer `node tools/sync-metadata.cjs` : ce script actualise les en-têtes des pages, le sitemap et le fichier robots, sans changer leur contenu principal. Les versions des feuilles de style sont définies au même endroit.
 
 Avant publication, lancer `node tools/check-site.cjs`, puis contrôler dans un navigateur les titres à 320 et 390 pixels, le bouton de fermeture du menu, le retour du focus au clavier, les photographies et les bandeaux sur grand écran. Vérifier les titres eux-mêmes : un texte peut être tronqué sans provoquer de défilement horizontal.
 
