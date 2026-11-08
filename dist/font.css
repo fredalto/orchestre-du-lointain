@@ -655,3 +655,19 @@ body.photo-open { overflow: hidden; }
   .photo-viewer-content { padding: .7rem; }
   .photo-viewer button { padding: .6rem .7rem; font-size: .8rem; }
 }
+
+/* Rythme plus resserré et touches d’ivoire pour réchauffer les pages. */
+:root { --ivory: #f6f3ed; }
+.section { padding-block: clamp(3rem, 5vw, 5rem); }
+.section.alt { background: var(--ivory); }
+.section-title { margin-bottom: 2rem; }
+.home-partners { padding-block: clamp(2.5rem, 4vw, 3.5rem); }
+.site-footer { background: #faf8f4; }
+.archive-section { margin-top: clamp(3rem, 5vw, 4.5rem); padding-top: 2.5rem; }
+.media-section { padding-top: clamp(3rem, 5vw, 4.5rem); }
+.programs-list { gap: clamp(3rem, 5vw, 4rem); }
+.conductor { margin-bottom: 3.5rem; }
+/* Le bandeau de la page mécénat rejoint directement son fond ivoire. */
+.page-hero.support-page::before {
+  background: linear-gradient(to bottom, rgba(246,243,237,0), rgba(246,243,237,.35) 45%, var(--ivory));
+}
