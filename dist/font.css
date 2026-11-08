@@ -671,3 +671,20 @@ body.photo-open { overflow: hidden; }
 .page-hero.support-page::before {
   background: linear-gradient(to bottom, rgba(246,243,237,0), rgba(246,243,237,.35) 45%, var(--ivory));
 }
+
+/* Références de presse : même rubrique dans Média et sur l’accueil. */
+#presse, .press-item[id] { scroll-margin-top: 100px; }
+.press-item h3 { line-height: 1.45; }
+.press-item h3 a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.press-item .press-source, .home-press-item .press-source { color: var(--brand); font-size: .8rem; font-weight: 600; }
+.press-item .press-source { margin: .5rem 0; }
+.press-item .press-access { margin-top: .75rem; font-size: .8rem; }
+.press-read { display: inline-block; margin-top: 1rem; color: var(--brand); font-size: .9rem; font-weight: 600; }
+.press-read:hover { text-decoration: underline; text-underline-offset: .2em; }
+.press-item a:focus-visible, .home-press-item:focus-visible { outline: 3px solid var(--brand); outline-offset: 5px; }
+.home-press-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+.home-press-item { padding: 1.5rem 0; border-top: 2px solid var(--brand); }
+.home-press-item h3 { margin: .7rem 0 0; font-size: clamp(1.2rem,2vw,1.65rem); line-height: 1.35; }
+.home-press-item:hover h3 { text-decoration: underline; text-underline-offset: .2em; }
+.home-press-more { margin: 1.5rem 0 0; }
+@media (max-width: 650px) { .home-press-list { grid-template-columns: 1fr; gap: .75rem; } }
