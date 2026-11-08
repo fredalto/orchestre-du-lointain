@@ -29,7 +29,7 @@ const concerts = [
     "id": "carnet-de-bal-les-attaques",
     "date": "2026-10-16",
     "time": "20h",
-    "title": "CARNET DE BAL",
+    "title": "Carnet de bal",
     "venue": "Salle de sport des Attaques",
     "city": "",
     "photos": "media.html#les-attaques-2026"
@@ -38,7 +38,7 @@ const concerts = [
     "id": "concert-2026-03-17-2",
     "date": "2026-03-17",
     "time": "20h00",
-    "title": "PETRA WOLK DANS LE LOINTAIN",
+    "title": "Petra Wolk dans le Lointain",
     "venue": "Grand Théâtre de Calais",
     "city": ""
   },
@@ -46,7 +46,7 @@ const concerts = [
     "id": "concert-2025-11-21-3",
     "date": "2025-11-21",
     "time": "19h30",
-    "title": "CARNET DE BAL",
+    "title": "Carnet de bal",
     "venue": "Salle Crinon Oye-Plage",
     "city": ""
   },
@@ -54,7 +54,7 @@ const concerts = [
     "id": "concert-2025-05-18-4",
     "date": "2025-05-18",
     "time": "14h00",
-    "title": "CARNET DE BAL",
+    "title": "Carnet de bal",
     "venue": "Le Channel, scène nationale de Calais",
     "city": ""
   },
@@ -62,7 +62,7 @@ const concerts = [
     "id": "concert-2025-05-17-5",
     "date": "2025-05-17",
     "time": "14h00",
-    "title": "CARNET DE BAL",
+    "title": "Carnet de bal",
     "venue": "Le Channel, scène nationale de Calais",
     "city": ""
   },
@@ -70,7 +70,7 @@ const concerts = [
     "id": "concert-2025-03-28-6",
     "date": "2025-03-28",
     "time": "20h00",
-    "title": "CARNET DE BAL",
+    "title": "Carnet de bal",
     "venue": "Salle des fêtes - Hardinghen",
     "city": ""
   },
@@ -78,7 +78,7 @@ const concerts = [
     "id": "concert-2025-01-12-7",
     "date": "2025-01-12",
     "time": "17h00",
-    "title": "CARNET DE BAL",
+    "title": "Carnet de bal",
     "venue": "La confiserie - WIMILLE",
     "city": ""
   },
@@ -86,7 +86,7 @@ const concerts = [
     "id": "concert-2024-10-20-8",
     "date": "2024-10-20",
     "time": "16h00",
-    "title": "PETRA WOLK DANS LE LOINTAIN",
+    "title": "Petra Wolk dans le Lointain",
     "venue": "Château d'Hardelot - CONDETTE",
     "city": ""
   },
@@ -102,7 +102,7 @@ const concerts = [
     "id": "concert-2024-02-25-10",
     "date": "2024-02-25",
     "time": "17h30",
-    "title": "PETRA WOLK DANS LE LOINTAIN",
+    "title": "Petra Wolk dans le Lointain",
     "venue": "Le Channel, scène nationale de Calais",
     "city": ""
   },
@@ -110,7 +110,7 @@ const concerts = [
     "id": "concert-2024-01-12-11",
     "date": "2024-01-12",
     "time": "20h30",
-    "title": "PETRA WOLK DANS LE LOINTAIN",
+    "title": "Petra Wolk dans le Lointain",
     "venue": "Salle culturelle et sportive CALPOOLCO - Marquise",
     "city": ""
   },
@@ -134,7 +134,7 @@ const concerts = [
     "id": "concert-2023-03-07-14",
     "date": "2023-03-07",
     "time": "20h30",
-    "title": "PETRA WOLK DANS LE LOINTAIN",
+    "title": "Petra Wolk dans le Lointain",
     "venue": "LUMBRES Salle Léo Lagrange",
     "city": ""
   },
@@ -142,7 +142,7 @@ const concerts = [
     "id": "concert-2022-12-15-15",
     "date": "2022-12-15",
     "time": "",
-    "title": "PETRA WOLK DANS LE LOINTAIN (Scolaires)",
+    "title": "Petra Wolk dans le Lointain (scolaires)",
     "venue": "AREA Aire sur la Lys",
     "city": ""
   },
@@ -150,7 +150,7 @@ const concerts = [
     "id": "concert-2022-12-14-16",
     "date": "2022-12-14",
     "time": "15h30",
-    "title": "PETRA WOLK DANS LE LOINTAIN",
+    "title": "Petra Wolk dans le Lointain",
     "venue": "AREA Aire sur la Lys",
     "city": ""
   },
@@ -166,7 +166,7 @@ const concerts = [
     "id": "concert-2022-10-21-18",
     "date": "2022-10-21",
     "time": "20h00",
-    "title": "PETRA WOLK DANS LE LOINTAIN",
+    "title": "Petra Wolk dans le Lointain",
     "venue": "Salle des fêtes de Guînes",
     "city": ""
   },
@@ -174,7 +174,7 @@ const concerts = [
     "id": "concert-2022-05-05-19",
     "date": "2022-05-05",
     "time": "20h00",
-    "title": "PETRA WOLK DANS LE LOINTAIN",
+    "title": "Petra Wolk dans le Lointain",
     "venue": "Salle des fêtes de Zutkerque",
     "city": ""
   },
@@ -209,13 +209,20 @@ function hero(e) {
   return `<a class="hero-event is-active" data-hero-event href="calendrier.html#${escape(e.id)}"><time datetime="${e.date}"><span>${dateLabel(e)} ${year(e)}</span><strong>${escape(e.time)}</strong></time><span class="hero-event-title">${escape(e.title)}</span><span class="hero-event-city">${escape(e.city || e.venue)}</span><span class="hero-event-cta">Infos et réservation →</span></a>`;
 }
 function home(e) {
-  return `<a class="home-event" href="${escape(e.url || 'calendrier.html#'+e.id)}"${e.url?' target="_blank" rel="noopener"':''}><time datetime="${e.date}"><strong>${e.date.slice(8)}</strong><span>${dateLabel(e).split(' ').slice(1).join(' ')}<br>${year(e)} · ${escape(e.time)}</span></time><h2>${escape(e.title)}</h2><p>${escape(e.venue)}</p><p>${escape(e.city)}</p>${e.address?`<p>${escape(e.address)}</p>`:''}${e.note?`<small>${escape(e.note)}</small>`:''}<span class="home-event-link">${e.url?'Infos et réservation':'Voir les détails'}</span></a>`;
+  return `<a class="home-event" href="${escape(e.url || 'calendrier.html#'+e.id)}"${e.url?' target="_blank" rel="noopener"':''}><time datetime="${e.date}"><strong>${e.date.slice(8)}</strong><span>${dateLabel(e).split(' ').slice(1).join(' ')}<br>${year(e)}${e.time?' · '+escape(e.time):''}</span></time><div class="home-event-copy"><h3>${escape(e.title)}</h3><p>${escape([e.venue,e.city].filter(Boolean).join(' · '))}</p>${e.address?`<p>${escape(e.address)}</p>`:''}${e.note?`<small>${escape(e.note)}</small>`:''}</div><span class="event-action">${e.url?'Infos et réservation':'Voir les détails'}</span></a>`;
 }
 function upcoming(e) {
   return `<a class="upcoming-event" id="${escape(e.id)}" href="${escape(e.url || 'mailto:contact@orchestredulointain.com')}"${e.url?' target="_blank" rel="noopener"':''}><time datetime="${e.date}"><b>${dateLabel(e)}</b><span>${year(e)}${e.time?' · '+escape(e.time):''}</span></time><div><h3>${escape(e.title)}</h3><p>${escape([e.venue,e.city].filter(Boolean).join(' · '))}</p>${e.address?`<p>${escape(e.address)}</p>`:''}${e.note?`<p class="event-note">${escape(e.note)}</p>`:''}</div><span class="event-action">${escape(e.action || 'Nous contacter')}</span></a>`;
 }
 function past(e) {
-  return `<article id="${escape(e.id)}"><time datetime="${e.date}"><b>${dateLabel(e)}</b><span>${year(e)}${e.time?' · '+escape(e.time):''}</span></time><div><h2>${escape(e.title)}</h2><p>${escape([e.venue,e.city].filter(Boolean).join(' · '))}</p>${e.photos?`<a class="home-event-link" href="${escape(e.photos)}">Retour en images</a>`:''}</div><span class="tag">${year(e)}</span></article>`;
+  return `<article id="${escape(e.id)}"><time datetime="${e.date}"><b>${dateLabel(e)}</b><span>${year(e)}${e.time?' · '+escape(e.time):''}</span></time><div><h3>${escape(e.title)}</h3><p>${escape([e.venue,e.city].filter(Boolean).join(' · '))}</p>${e.photos?`<a class="home-event-link" href="${escape(e.photos)}">Retour en images</a>`:''}</div></article>`;
+}
+function archives(events) {
+  const years = [...new Set(events.map(year))];
+  return years.map((value,index) => {
+    const group = events.filter(e => year(e) === value);
+    return `<details class="archive-year" data-year="${value}"${index===0?' open':''}><summary><span>${value}</span><span class="archive-count">${group.length} concert${group.length>1?'s':''}</span></summary><div class="archive-year-events">${group.map(past).join('\n')}</div></details>`;
+  }).join('\n');
 }
 function sections(now) {
   const lists = splitConcerts(now);
@@ -223,7 +230,7 @@ function sections(now) {
     hero: hero(lists.upcoming[0]),
     home: lists.upcoming.slice(0,3).map(home).join('\n') || '<p class="empty-concerts">De nouvelles dates seront annoncées prochainement. Retrouvez nos précédents concerts dans les archives.</p>',
     upcoming: lists.upcoming.map(upcoming).join('\n') || '<p class="empty-concerts">De nouvelles dates seront annoncées prochainement.</p>',
-    archives: lists.past.map(past).join('\n'),
+    archives: archives(lists.past),
     heading: lists.upcoming.length === 1 ? 'Prochain concert' : 'Prochains concerts'
   };
 }
@@ -236,7 +243,9 @@ if (typeof document !== 'undefined') {
     for (const key of ['hero','home','upcoming','archives']) {
       const container = document.querySelector(`[data-concerts="${key}"]`);
       if (container && rendered[key] !== content[key]) {
+        const openYears = key === 'archives' && rendered[key] ? [...container.querySelectorAll('details[open]')].map(el => el.dataset.year) : null;
         container.innerHTML = content[key];
+        if (openYears) container.querySelectorAll('details').forEach(el => { el.open = openYears.includes(el.dataset.year); });
         rendered[key] = content[key];
       }
     }

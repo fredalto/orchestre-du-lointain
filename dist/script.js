@@ -7,6 +7,7 @@ addEventListener('scroll', () => header?.classList.toggle('scrolled', scrollY > 
 toggle?.addEventListener('click', () => {
   const open = toggle.getAttribute('aria-expanded') === 'true';
   toggle.setAttribute('aria-expanded', String(!open));
+  toggle.setAttribute('aria-label', open ? 'Ouvrir le menu' : 'Fermer le menu');
   nav.classList.toggle('open');
   document.body.classList.toggle('menu-open');
 });
@@ -15,6 +16,7 @@ nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () =
   nav.classList.remove('open');
   document.body.classList.remove('menu-open');
   toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-label', 'Ouvrir le menu');
 }));
 
 const current = document.body.dataset.page;
@@ -33,16 +35,31 @@ document.querySelectorAll('main .container > section, .program, .press-item, .su
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-document.querySelectorAll('a[href]').forEach((link) => link.addEventListener('click', (event) => {
-  if (reduceMotion || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target === '_blank' || link.hasAttribute('download')) return;
-  const destination = new URL(link.href, location.href);
-  if (destination.origin !== location.origin || !destination.pathname.endsWith('.html') || destination.href === location.href) return;
-  event.preventDefault();
-  document.body.classList.add('page-leaving');
-  setTimeout(() => { location.href = destination.href; }, 260);
-}));
-
-addEventListener('pageshow', () => document.body.classList.remove('page-leaving'));
+// Un lien direct vers une ancienne date ouvre aussi son année d’archives.
+function revealHash() {
+  let target;
+  try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { return; }
+  if (!target) return;
+  let parent = target.parentElement;
+  let opened = false;
+  while (parent) {
+    if (parent.tagName === 'DETAILS' && !parent.open) { parent.open = true; opened = true; }
+    parent = parent.parentElement;
+  }
+  if (opened) target.scrollIntoView({block:'start', behavior:'instant'});
+}
+revealHash();
+addEventListener('hashchange', revealHash);
+addEventListener('pageshow', revealHash);
+addEventListener('keydown', event => {
+  if (event.key === 'Escape' && nav?.classList.contains('open')) {
+    nav.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+    toggle.focus();
+  }
+});
 
 document.querySelectorAll('.hero-events').forEach((ticker) => {
   const items = [...ticker.querySelectorAll('[data-hero-event]')];

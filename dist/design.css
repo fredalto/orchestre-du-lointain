@@ -1,0 +1,173 @@
+/* Finitions communes : Montserrat, bleu de l’orchestre et ivoire. */
+:root { --muted: #546368; --shadow: 0 8px 24px rgba(20,63,75,.07); }
+body { line-height: 1.75; }
+img { height: auto; }
+h1, h2, h3 { text-wrap: balance; }
+.section-title { font-size: clamp(2rem,3.6vw,3.15rem); line-height: 1.14; }
+.section { padding-block: clamp(3rem,5.5vw,5rem); }
+.kicker { letter-spacing: .15em; }
+a, summary, button { -webkit-tap-highlight-color: rgba(36,93,109,.15); }
+a:focus-visible, summary:focus-visible, button:focus-visible { outline: 3px solid #397f90; outline-offset: 5px; }
+.button, .event-action, .media-nav a { border-radius: 3px; font-size: .9rem; font-weight: 600; }
+.button, .event-action { min-height: 46px; }
+.button.outline { background: transparent; }
+.button.outline:hover { background: var(--brand-light); }
+.text-link { display: inline-block; color: var(--brand); font-size: .9rem; font-weight: 600; text-decoration: underline; text-underline-offset: .3em; }
+.text-link:hover { color: var(--brand-dark); }
+main { animation: none; transition: opacity .15s ease; }
+body.page-leaving main { transform: none; }
+.reveal { transform: none; transition: opacity .35s ease; }
+
+/* L’accueil : un rendez-vous lisible sur toute la largeur. */
+.hero { height: min(760px,94svh); }
+.home-upcoming .featured-events { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.home-upcoming .home-event { max-width: none; }
+.featured-events .home-event {
+  display: grid; grid-template-columns: 155px minmax(0,1fr) auto; gap: 2rem;
+  align-items: center; padding: 1.8rem 2rem; border: 1px solid var(--line);
+  border-left: 4px solid var(--brand); background: #fff; box-shadow: var(--shadow);
+}
+.featured-events .home-event:hover, .featured-events .home-event:focus-visible { transform: none; box-shadow: 0 10px 30px rgba(20,63,75,.1); }
+.featured-events time { flex-direction: column; align-items: flex-start; gap: .45rem; }
+.featured-events time strong { font-size: 3.2rem; font-weight: 600; }
+.featured-events time span { font-size: .73rem; line-height: 1.65; }
+.home-event-copy { padding-left: 2rem; border-left: 1px solid var(--line); }
+.home-event-copy h3 { margin: 0 0 .45rem; color: var(--brand-dark); font-size: clamp(1.4rem,2vw,1.8rem); line-height: 1.25; }
+.home-event-copy p { color: var(--muted); font-size: .9rem; }
+.featured-events small { margin-top: .6rem; font-size: .8rem; }
+.home-event .event-action { max-width: 190px; align-content: center; }
+.calendar-more { margin: 1.4rem 0 0; }
+.home-link { min-height: 340px; }
+.home-link h3 { position: relative; z-index: 1; margin: 0; font-size: clamp(1.65rem,2.8vw,2.3rem); line-height: 1.18; }
+.home-recap .concert-photo { margin-bottom: 1.5rem; }
+.home-press-item h3 { font-size: clamp(1.2rem,1.8vw,1.5rem); }
+
+/* Des ouvertures plus courtes, propres à chaque rubrique. */
+.page-hero, .page-hero.project, .page-hero.team-page, .page-hero.program-page,
+.page-hero.calendar-page, .page-hero.media-page, .page-hero.support-page {
+  min-height: 330px; padding-top: 118px; padding-bottom: 4.5rem;
+}
+.page-hero.project { background-image: url('assets/projet-education.jpg'); background-position: center 46%; }
+.page-hero.team-page { background-position: center 58%; }
+.page-hero.program-page { background-image: url('assets/projet-spectacle.jpg'); background-position: center 38%; }
+.page-hero.calendar-page, .page-hero.media-page { background-image: url('assets/concert-les-attaques-2026.jpg'); background-position: center 45%; }
+.page-hero.support-page { background-image: url('assets/projet-education.jpg'); background-position: center 58%; }
+.page-hero::after { background: linear-gradient(90deg,rgba(10,35,42,.8),rgba(10,35,42,.35) 55%,rgba(10,35,42,.08)); }
+.page-hero h1 { padding-left: 1.1rem; border-left-width: 2px; font-size: clamp(2.3rem,4.3vw,3.65rem); line-height: 1.12; animation: none; }
+.page-hero h1::before { display: none; }
+
+/* Lecture et spectacles : l’essentiel précède les informations détaillées. */
+.prose { max-width: 760px; }
+.prose .lead { font-size: clamp(1.1rem,1.7vw,1.25rem); line-height: 1.75; color: var(--brand-dark); }
+.prose h2 { margin: 2.2rem 0 .7rem; color: var(--brand); font-size: clamp(1.3rem,2.2vw,1.7rem); line-height: 1.3; }
+.quote { max-width: 760px; margin: 3rem auto 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line); color: var(--brand); font-size: clamp(1.1rem,1.7vw,1.35rem); }
+.quote cite { font-size: .85rem; color: var(--muted); }
+.program { gap: clamp(2rem,5vw,4rem); scroll-margin-top: 100px; }
+.program h2 { font-size: clamp(1.85rem,3vw,2.6rem); line-height: 1.18; }
+.program h3 { margin-top: .6rem; color: var(--muted); font-weight: 500; }
+.program-facts { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 1.7rem 0; padding-block: 1rem; border-block: 1px solid var(--line); }
+.program-facts dt { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
+.program-facts dd { margin: .2rem 0 0; color: var(--brand-dark); font-size: .9rem; font-weight: 600; }
+.program-details { margin-top: 1.5rem; border-block: 1px solid var(--line); }
+.program-details summary { padding: 1rem .2rem; cursor: pointer; color: var(--brand); font-size: .88rem; font-weight: 600; }
+.program-details > p { font-size: .85rem; }
+.program-details .artistic { border: 0; padding: 0; font-size: .85rem; }
+.program-contact { margin: 1.25rem 0 0; }
+.conductor { gap: clamp(2rem,4vw,3rem); }
+.conductor img { height: 490px; }
+.conductor h2 { font-size: clamp(1.8rem,3vw,2.35rem); }
+.person-row { padding-block: 2.2rem; }
+.person-row .role { color: #9ed0db; }
+.team-section .kicker { color: #9ed0db; }
+
+/* Archives et presse : une lecture chronologique, sans répétition de cadres. */
+.archive-section .events { border-top: 0; }
+.archive-year { border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+.archive-year:last-child { border-bottom: 1px solid var(--line); }
+.archive-year summary { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 0; color: var(--brand); cursor: pointer; list-style: none; }
+.archive-year summary::-webkit-details-marker { display: none; }
+.archive-year summary > span:first-child { font-size: 1.6rem; font-weight: 600; }
+.archive-count { margin-left: auto; color: var(--muted); font-size: .85rem; }
+.archive-year summary::after { content: '+'; font-size: 1.5rem; font-weight: 400; }
+.archive-year[open] summary::after { content: '−'; }
+.archive-section .events article { grid-template-columns: 150px minmax(0,1fr); opacity: 1; padding: 1.2rem 0; border-bottom: 0; border-top: 1px solid var(--line); }
+.events h3 { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.5; }
+.events time span, .events p { color: var(--muted); font-size: .9rem; }
+.events time b { font-size: 1.05rem; }
+.events .home-event-link { margin-top: .6rem; font-size: .85rem; border-bottom-width: 1px; }
+.media-nav { flex-wrap: wrap; gap: .65rem; }
+#videos, #photos, #presse { scroll-margin-top: 105px; }
+.press-period { color: var(--muted); font-size: .85rem; margin: -1rem 0 1.5rem; }
+.press-list { grid-template-columns: 1fr; gap: 0; }
+.press-item { display: grid; grid-template-columns: 155px minmax(0,1fr); column-gap: 2rem; padding: 1.6rem 0; border: 0; border-top: 1px solid var(--line); }
+.press-item time { grid-column: 1; grid-row: 1; padding-top: .25rem; }
+.press-item > *:not(time) { grid-column: 2; }
+.press-item .press-source { grid-row: 1; margin: 0 0 .5rem; }
+.press-item h3 { margin: 0; font-size: clamp(1.05rem,1.65vw,1.35rem); line-height: 1.5; font-weight: 600; }
+.press-item .press-read { margin-top: .8rem; }
+.press-archives { margin-top: 1.5rem; border-top: 1px solid var(--line); }
+.press-archives > summary { padding-block: 1.3rem; color: var(--brand); cursor: pointer; font-weight: 600; }
+.press-archives > summary span { margin-left: .7rem; color: var(--muted); font-size: .8rem; font-weight: 400; }
+.press-archives .press-item h3 { font-size: 1rem; }
+
+/* Soutien et partenaires : des blocs équilibrés, des logos à échelle comparable. */
+.support-grid { gap: 1.5rem; }
+.support-panel { display: flex; flex-direction: column; align-items: flex-start; padding: clamp(1.5rem,3vw,2.5rem); background: #fff; border-top: 3px solid var(--brand); }
+.support-panel h2 { font-size: clamp(1.6rem,2.5vw,2rem); line-height: 1.2; margin-bottom: .8rem; }
+.support-panel > p:not(.kicker):not(.support-alternative) { margin-top: 0; margin-bottom: 1.7rem; }
+.support-panel > .button { margin-top: auto; }
+.support-panel .support-alternative { font-size: .85rem; color: var(--muted); margin-bottom: 0; }
+.support-alternative a:not(.text-link) { text-decoration: underline; text-underline-offset: .2em; }
+.mecenat-details { max-width: 760px; margin: 3rem auto 0; padding-top: 2.5rem; border-top: 1px solid #d5d6d0; scroll-margin-top: 100px; }
+.mecenat-details h2 { color: var(--brand); font-size: clamp(1.6rem,2.5vw,2rem); line-height: 1.3; margin: .5rem 0 1.5rem; }
+.mecenat-details a { text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.partners { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1rem; }
+.partners figure { height: 135px; padding: 1rem 1.2rem; }
+.partners img { max-height: 100px; max-width: 185px; }
+.partners-home { grid-template-columns: repeat(5,minmax(0,1fr)); }
+.partners-home figure { height: 115px; }
+.partners-home img { max-height: 85px; }
+.site-footer { border-top-width: 2px; }
+.social-links a, .footer-grid a[href^='mailto:'] { border-radius: 3px; }
+
+@media (max-width: 980px) {
+  .featured-events .home-event { grid-template-columns: 130px minmax(0,1fr); gap: 1.5rem; }
+  .home-event .event-action { grid-column: 2; width: fit-content; }
+  .home-event-copy { padding-left: 1.5rem; }
+  .partners, .partners-home { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .video-grid { gap: 2rem; }
+  .conductor img { height: 460px; width: min(100%,480px); }
+}
+@media (max-width: 650px) {
+  .section-title { font-size: clamp(1.9rem,7vw,2.3rem); margin-bottom: 1.6rem; }
+  body[data-page='accueil'] .hero { height: clamp(460px,70svh,560px); min-height: 0; padding-bottom: 6.5rem; }
+  .hero img { height: 132%; top: -24%; bottom: auto; object-position: 55% center; }
+  .hero-copy { padding-left: .9rem; border-left-width: 2px; }
+  .hero h1 { font-size: clamp(2rem,8.8vw,2.6rem); line-height: 1.08; }
+  .hero p { font-size: 1.05rem; }
+  .hero-events { display: none; }
+  .home-upcoming { padding-top: 1.5rem; }
+  .featured-events .home-event { grid-template-columns: 1fr; gap: 1.15rem; padding: 1.35rem; }
+  .featured-events time { flex-direction: row; align-items: center; gap: .8rem; }
+  .featured-events time strong { font-size: 2.6rem; }
+  .home-event-copy { border-left: 0; border-top: 1px solid var(--line); padding: 1rem 0 0; }
+  .home-event .event-action { grid-column: auto; width: 100%; max-width: none; }
+  .home-link { min-height: 280px; padding: 1.5rem; }
+  .page-hero, .page-hero.project, .page-hero.team-page, .page-hero.program-page,
+  .page-hero.calendar-page, .page-hero.media-page, .page-hero.support-page { min-height: 270px; padding-top: 110px; padding-bottom: 3.5rem; }
+  .page-hero h1 { font-size: clamp(2rem,8vw,2.6rem); padding-left: .85rem; }
+  .page-hero::before { height: 48px; }
+  .page-hero.team-page { background-position: center 58%; }
+  .program-facts { gap: 1rem 1.5rem; }
+  .conductor img { height: 390px; }
+  .archive-section .events article { grid-template-columns: 95px minmax(0,1fr); gap: 1rem; }
+  .archive-count { font-size: .8rem; }
+  .press-item { grid-template-columns: 1fr; padding-block: 1.4rem; }
+  .press-item time, .press-item > *:not(time), .press-item .press-source { grid-column: auto; grid-row: auto; }
+  .press-item .press-source { margin: .3rem 0 .65rem; }
+  .press-archives > summary span { display: block; margin-left: 1.1rem; margin-top: .2rem; }
+  .partners, .partners-home { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem; }
+  .partners figure, .partners-home figure { height: 115px; padding: .8rem; }
+  .partners img { max-height: 85px; }
+}
+@media (prefers-reduced-motion: reduce) { .reveal { transition: none; } }

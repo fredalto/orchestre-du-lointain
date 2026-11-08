@@ -15,6 +15,13 @@ assert.equal(state.past[0].id,next);
 assert.match(api.sections(new Date('2026-12-06T12:00:00Z')).home,/De nouvelles dates/);
 assert.doesNotMatch(api.sections(new Date('2026-12-06T12:00:00Z')).hero,/Réserver/);
 assert.equal(api.parisDay(new Date('2026-12-05T23:30:00Z')),'2026-12-06');
+// Les archives regroupées restent exhaustives et seule l’année récente est ouverte.
+const archiveHTML=api.sections(new Date('2026-11-08T18:00:00+01:00')).archives;
+assert.deepEqual([...archiveHTML.matchAll(/data-year="(\d{4})"/g)].map(m=>m[1]),['2026','2025','2024','2023','2022','2021']);
+assert.equal((archiveHTML.match(/<article id=/g)||[]).length,21);
+assert.equal((archiveHTML.match(/<details[^>]+ open>/g)||[]).length,1);
+assert.match(archiveHTML, /data-year="2026" open/);
+assert.match(api.sections(new Date('2026-12-06T12:00:00Z')).archives, /id="carnet-de-bal-bonningues"/);
 // Sans fin précise : une date future reste visible le jour du concert, puis est archivée à minuit à Paris.
 api.concerts.push({id:'test',date:'2027-06-01',time:'20h',title:'Test',venue:'Test',city:''});
 assert.ok(api.splitConcerts(new Date('2027-06-01T21:59:59Z')).upcoming.some(e=>e.id==='test'));
@@ -31,4 +38,4 @@ for(const file of fs.readdirSync('dist').filter(f=>f.endsWith('.html'))){
  }
 }
 assert.equal((fs.readFileSync('dist/media.html','utf8').match(/data-gallery-photo/g)||[]).length,7);
-console.log('Tests réussis : 22 concerts conservés, archivage à la bonne heure, heure de Paris, état sans concert, liens et galerie.');
+console.log('Tests réussis : 22 concerts conservés, archivage à la bonne heure, regroupement par année, heure de Paris, état sans concert, liens et galerie.');
