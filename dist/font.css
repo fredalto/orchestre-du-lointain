@@ -620,8 +620,9 @@ body[data-page="accueil"] .hero::after {
   background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.35) 45%, #fff);
 }
 /* Informations du concert et galerie en grand format. */
-.hero-events-stage { min-height: 154px; }
-.hero-event { gap: .45rem; padding: 1rem 1.2rem; background: linear-gradient(90deg, rgba(255,255,255,.88), rgba(255,255,255,.62)); }
+.hero-events { top: clamp(6.25rem, 12vh, 7rem); width: min(360px, calc(100% - 4.4rem)); }
+.hero-events-stage { min-height: 122px; }
+.hero-event { gap: .35rem; padding: .4rem 0 .4rem 1rem; background: none; color: #12343e; text-shadow: 0 1px 10px rgba(255,255,255,.55); }
 .hero-event-city { font-size: .9rem; font-weight: 500; }
 .hero-event-cta { margin-top: .25rem; font-size: .85rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
 .hero-event:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
@@ -647,8 +648,9 @@ body.photo-open { overflow: hidden; }
 .photo-caption { padding: .8rem 0; text-align: center; font-size: .9rem; }
 .photo-controls { display: flex; align-items: center; justify-content: space-between; gap: .7rem; }
 @media (max-width: 650px) {
-  .hero-events-stage { min-height: 150px; }
-  .hero-event { padding: .8rem 1rem; }
+  .hero-events-stage { min-height: 122px; }
+  .hero-events { top: 6.1rem; width: auto; }
+  .hero-event { padding: .4rem 0 .4rem .8rem; }
   .booking-actions { flex-direction: column; align-items: stretch; }
   .photo-viewer-content { padding: .7rem; }
   .photo-viewer button { padding: .6rem .7rem; font-size: .8rem; }
