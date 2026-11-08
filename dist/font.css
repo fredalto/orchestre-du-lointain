@@ -586,3 +586,24 @@ body.page-leaving main {
     transition: none;
   }
 }
+
+/* Fondu de la photographie vers le fond blanc de l’accueil. */
+body[data-page="accueil"] .hero { padding-bottom: clamp(9rem, 18vh, 11rem); }
+body[data-page="accueil"] .hero::after {
+  background: linear-gradient(to bottom, rgba(0,0,0,.24) 0%, rgba(0,0,0,.36) 64%, rgba(0,0,0,.25) 73%, rgba(255,255,255,.4) 86%, #fff 100%);
+}
+.home-upcoming { background: #fff; }
+.home-upcoming .featured-events { grid-template-columns: minmax(0, 1fr); }
+.home-upcoming .home-event { max-width: 740px; }
+.recap-intro { max-width: 720px; margin: -1rem 0 2rem; }
+.concert-photo { margin: 0 0 2rem; }
+.concert-photo img { width: 100%; height: auto; }
+.concert-photo figcaption { margin-top: .8rem; font-size: .85rem; color: var(--muted); }
+.concert-photo a:focus-visible { display: block; outline: 3px solid var(--brand); outline-offset: 5px; }
+.concert-album { margin-bottom: 4rem; scroll-margin-top: 100px; }
+.concert-album h3 { color: var(--brand); font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: .2rem; }
+.concert-album > p { margin-top: 0; color: var(--muted); }
+.events article[id] { scroll-margin-top: 100px; }
+@media (max-width: 650px) {
+  body[data-page="accueil"] .hero { padding-bottom: 9rem; }
+}
