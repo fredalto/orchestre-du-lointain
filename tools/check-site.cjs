@@ -27,8 +27,17 @@ api.concerts.push({id:'test',date:'2027-06-01',time:'20h',title:'Test',venue:'Te
 assert.ok(api.splitConcerts(new Date('2027-06-01T21:59:59Z')).upcoming.some(e=>e.id==='test'));
 assert.ok(api.splitConcerts(new Date('2027-06-01T22:00:00Z')).past.some(e=>e.id==='test'));
 api.concerts.pop();
+const descriptions=new Set();
 for(const file of fs.readdirSync('dist').filter(f=>f.endsWith('.html'))){
  const html=fs.readFileSync('dist/'+file,'utf8');
+ assert.equal((html.match(/<h1\b/g)||[]).length,1,file+': titre principal');
+ const description=html.match(/<meta name="description" content="([^"]+)"/);
+ assert.ok(description,file+': description absente');
+ assert.ok(!descriptions.has(description[1]),file+': description dupliquée');descriptions.add(description[1]);
+ const canonical='https://orchestredulointain.com/'+(file==='index.html'?'':file);
+ assert.ok(html.includes('<link rel="canonical" href="'+canonical+'">'),file+': URL canonique');
+ assert.ok(html.includes('<meta property="og:url" content="'+canonical+'">'),file+': URL de partage');
+ assert.ok(html.includes('<meta property="og:image"'),file+': image de partage absente');
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(new Set(ids).size,ids.length,file+': identifiants dupliqués');
  for(const m of html.matchAll(/(?:href|src)="([^"?]+)(?:\?[^"#]*)?"/g)){
@@ -38,4 +47,7 @@ for(const file of fs.readdirSync('dist').filter(f=>f.endsWith('.html'))){
  }
 }
 assert.equal((fs.readFileSync('dist/media.html','utf8').match(/data-gallery-photo/g)||[]).length,7);
-console.log('Tests réussis : 22 concerts conservés, archivage à la bonne heure, regroupement par année, heure de Paris, état sans concert, liens et galerie.');
+const sitemap=fs.readFileSync('dist/sitemap.xml','utf8');
+assert.equal((sitemap.match(/<loc>/g)||[]).length,descriptions.size,'Sitemap incomplet');
+assert.match(fs.readFileSync('dist/robots.txt','utf8'),/Sitemap: https:\/\/orchestredulointain.com\/sitemap.xml/);
+console.log('Tests réussis : 22 concerts, archivage, heure de Paris, état sans concert, liens, galerie, descriptions uniques et partage des sept pages.');

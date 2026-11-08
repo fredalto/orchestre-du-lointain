@@ -18,3 +18,11 @@ Les dates sont maintenant saisies une seule fois dans `dist/concerts.js`, dans l
 - La galerie de la page Média permet d’agrandir les photos, de passer à la suivante/précédente avec les boutons ou les flèches du clavier, et de fermer avec Échap. Renseigner les légendes et les crédits connus dans les attributs `data-caption` des liens.
 
 Fiche officielle utilisée pour le lien du 5 décembre : https://mediatheques.grandcalais.fr/Default/doc/CALENDAR/812/carnet-de-bal .
+
+## Descriptions, partage et contrôles
+
+Les titres, descriptions et aperçus de partage des sept pages sont regroupés dans `tools/sync-metadata.cjs`. Après modification, lancer `node tools/sync-metadata.cjs` : ce script actualise les en-têtes des pages, le sitemap et le fichier robots, sans changer leur contenu principal. Les versions des feuilles de style sont définies au même endroit.
+
+Avant publication, lancer `node tools/check-site.cjs`, puis contrôler dans un navigateur les titres à 320 et 390 pixels, le bouton de fermeture du menu, le retour du focus au clavier, les photographies et les bandeaux sur grand écran. Vérifier les titres eux-mêmes : un texte peut être tronqué sans provoquer de défilement horizontal.
+
+Les contenus ne dépendent plus d’une animation pour devenir visibles. La photo de groupe, ses cadrages et Montserrat restent les références graphiques ; éviter de changer les bandeaux à l’occasion d’une correction de contenu.
