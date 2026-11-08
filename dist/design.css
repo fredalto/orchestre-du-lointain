@@ -42,19 +42,8 @@ body.page-leaving main { transform: none; }
 .home-recap .concert-photo { margin-bottom: 1.5rem; }
 .home-press-item h3 { font-size: clamp(1.2rem,1.8vw,1.5rem); }
 
-/* Des ouvertures plus courtes, propres à chaque rubrique. */
-.page-hero, .page-hero.project, .page-hero.team-page, .page-hero.program-page,
-.page-hero.calendar-page, .page-hero.media-page, .page-hero.support-page {
-  min-height: 330px; padding-top: 118px; padding-bottom: 4.5rem;
-}
-.page-hero.project { background-image: url('assets/projet-education.jpg'); background-position: center 46%; }
-.page-hero.team-page { background-position: center 58%; }
-.page-hero.program-page { background-image: url('assets/projet-spectacle.jpg'); background-position: center 38%; }
-.page-hero.calendar-page, .page-hero.media-page { background-image: url('assets/concert-les-attaques-2026.jpg'); background-position: center 45%; }
-.page-hero.support-page { background-image: url('assets/projet-education.jpg'); background-position: center 58%; }
-.page-hero::after { background: linear-gradient(90deg,rgba(10,35,42,.8),rgba(10,35,42,.35) 55%,rgba(10,35,42,.08)); }
-.page-hero h1 { padding-left: 1.1rem; border-left-width: 2px; font-size: clamp(2.3rem,4.3vw,3.65rem); line-height: 1.12; animation: none; }
-.page-hero h1::before { display: none; }
+/* Les bandeaux conservent la photo de groupe, les pictogrammes et les
+   cadrages de font.css, validés avant les finitions du contenu. */
 
 /* Lecture et spectacles : l’essentiel précède les informations détaillées. */
 .prose { max-width: 760px; }
@@ -153,11 +142,6 @@ body.page-leaving main { transform: none; }
   .home-event-copy { border-left: 0; border-top: 1px solid var(--line); padding: 1rem 0 0; }
   .home-event .event-action { grid-column: auto; width: 100%; max-width: none; }
   .home-link { min-height: 280px; padding: 1.5rem; }
-  .page-hero, .page-hero.project, .page-hero.team-page, .page-hero.program-page,
-  .page-hero.calendar-page, .page-hero.media-page, .page-hero.support-page { min-height: 270px; padding-top: 110px; padding-bottom: 3.5rem; }
-  .page-hero h1 { font-size: clamp(2rem,8vw,2.6rem); padding-left: .85rem; }
-  .page-hero::before { height: 48px; }
-  .page-hero.team-page { background-position: center 58%; }
   .program-facts { gap: 1rem 1.5rem; }
   .conductor img { height: 390px; }
   .archive-section .events article { grid-template-columns: 95px minmax(0,1fr); gap: 1rem; }
