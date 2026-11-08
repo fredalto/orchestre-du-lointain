@@ -607,3 +607,15 @@ body[data-page="accueil"] .hero::after {
 @media (max-width: 650px) {
   body[data-page="accueil"] .hero { padding-bottom: 9rem; }
 }
+
+/* Fondu léger commun aux bandeaux des pages intérieures. */
+.page-hero { padding-bottom: 5rem; }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 64px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.35) 45%, #fff);
+}
