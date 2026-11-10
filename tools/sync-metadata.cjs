@@ -41,7 +41,7 @@ for (const [file,title,description] of pages) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20261108-1">
-  <link rel="stylesheet" href="font.css?v=20261108-8">
+  <link rel="stylesheet" href="font.css?v=20261110-1">
   <link rel="stylesheet" href="design.css?v=20261108-5">
 </head>`;
   const path = 'dist/' + file;
