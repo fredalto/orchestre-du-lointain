@@ -3,7 +3,7 @@
 const fs = require('node:fs');
 const root = 'https://orchestredulointain.com/';
 const pages = [
-  ['index.html', 'Orchestre du Lointain', 'Ensemble orchestral professionnel basé à Calais, dirigé par Sophie Lechelle. Découvrez nos spectacles, les prochaines dates et la vie de l’orchestre.'],
+  ['index.html', 'Orchestre du Lointain', 'Sous la direction musicale de Sophie Lechelle, l’Orchestre du Lointain vous invite à découvrir ses spectacles, ses prochaines dates et sa vie en images.'],
   ['projet.html', 'Le projet · Orchestre du Lointain', 'Un orchestre professionnel ancré à Calais et sur la Côte d’Opale : création, rencontres et partage de la musique avec tous les publics.'],
   ['equipe.html', 'L’équipe · Orchestre du Lointain', 'Découvrez Sophie Lechelle, directrice musicale de l’Orchestre du Lointain, et les musiciens de son conseil artistique.'],
   ['programmes.html', 'Programmes · Orchestre du Lointain', 'Carnet de bal et Petra Wolk dans le Lointain : découvrez les spectacles de l’orchestre et contactez-nous pour les accueillir.'],
